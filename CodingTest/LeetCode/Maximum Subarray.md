@@ -68,7 +68,7 @@ return MAX(leftSum, rightSum, crossSum);
 }
 ```
 
-For ```divideAndConqure(nums, 0, 1)``` it calls ```int leftSum = divideAndConquer(nums, 0, 0)``` and ```int rightSum = divideAndConquer(nums, 1, 1)```.
+For ```divideAndConquer(nums, 0, 1)``` it calls ```int leftSum = divideAndConquer(nums, 0, 0)``` and ```int rightSum = divideAndConquer(nums, 1, 1)```.
 
 ```
 divideAndConquer(nums, 0, 1) { // {5, 4}
@@ -84,7 +84,7 @@ Now for ```maxCrossingSum(nums, 0, 0, 1)``` returns the sum of both left and rig
 
 ```
 maxCrossingSum(nums, start, mid, end) { // {5, 4} in this case.
-int leftSum = Maximum sum of array[start] ~ array[mid] // {5}
+int leftSum = Maximum sum of array[mid] ~ array[start] // {5}
 int rightSum = Maximum sum of array[mid+1] ~ array[end] // {4}
 
 return leftSum + rightSum;
@@ -147,7 +147,7 @@ int crossSum = maxCrossingSum(nums, 0, 2, 4);
 return MAX(leftSum, rightSum, crossSum);
 ```
 
-In left array of ```maxCrossingSum(nums, 0, 2, 4)```, the index starts from the end of left array, accumulating sum to find the maximum sum.\
+In left array of ```maxCrossingSum(nums, 0, 2, 4)```, the index starts from the end of left array to keep array continuity with right array.
 Same for the right array but it starts from index 0. The left results 8 and right results 15. Sum of them is 23.
 
 ```
