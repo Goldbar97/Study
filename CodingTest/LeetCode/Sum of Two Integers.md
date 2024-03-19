@@ -38,6 +38,14 @@ Notice that this is just same as we getting sum at first hand. But this is not e
 
 AND is zero and XOR indicates the result we want.
 
+Sum with negative numbers can be done in same method. Negative binary numbers are expressed in two's complement form for ease calculation.
+
+![image](https://github.com/Goldbar97/Study/assets/100333239/8e76292d-f987-42bb-9daa-0bed7b315fb6)
+
+-2 is expressed as 1110 but there are more 1 ahead until it reaches the end of allocated size of Integer.
+
+So adding with negative numbers doesn't need other programs but only sum.
+
 ## Code
 ```java
 class Solution {
