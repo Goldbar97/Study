@@ -38,9 +38,9 @@ Can you do it without using any built-in function (i.e., like __builtin_popcount
 ## My Solution
 First, we need to know that multiplying or dividing with 2 acts same as shifting to left or right.
 
-Shifting doesn't make change of the number of ones.
+Shifting doesn't make change of the number of ones unless the number is not divisable by 2.
 
-If the number is not divisable by 2, it means there is 1 at the least significant bit. Other than that the number of ones is just same as shifting it to right.
+If the number is not divisable, it means there is 1 at the least significant bit. Other than that the number of ones is just same as shifting it to right.
 
 ## Code
 ```java
