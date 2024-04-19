@@ -3,7 +3,6 @@ class Solution {
         int a = 'a';
         int z = 'z';
         int A = 'A';
-        int Z = 'Z';
         
         char[] cArr = s.toCharArray();
         
