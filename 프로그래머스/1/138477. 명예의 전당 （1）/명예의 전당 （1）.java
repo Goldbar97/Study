@@ -7,9 +7,7 @@ class Solution {
         int[] result = new int[score.length];
         
         for (int i = 0; i < score.length; i++) {
-            if (pq.size() < k) {
-                pq.offer(score[i]);
-            } else if (pq.peek() < score[i]) {
+            if (pq.size() < k || pq.peek() < score[i]) {
                 pq.offer(score[i]);
             }
             
