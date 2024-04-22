@@ -13,12 +13,11 @@ class Solution {
                 pq.offer(score[i]);
             }
             
-            if (pq.size() <= k) {
-                result[i] = pq.peek();
-            } else {
+            if (pq.size() > k) {
                 pq.poll();
-                result[i] = pq.peek();
             }
+        
+            result[i] = pq.peek();
         }
         
         return result;
