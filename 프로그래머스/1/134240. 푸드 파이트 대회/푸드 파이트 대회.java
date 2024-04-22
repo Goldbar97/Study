@@ -11,7 +11,9 @@ class Solution {
             }
         }
         String normal = sb.toString();
-        String reversed = sb.reverse().toString();
+        
+        sb.reverse();
+        
         sb.insert(0, 0).insert(0, normal);
         
         return sb.toString();
