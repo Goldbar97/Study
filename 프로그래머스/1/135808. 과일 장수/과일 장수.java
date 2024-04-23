@@ -3,14 +3,19 @@ import java.util.*;
 class Solution {
     public int solution(int k, int m, int[] score) {
         
-        Arrays.sort(score);
+        PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
         int result = 0;
-        int N = score.length;
-        int startIndexOfBox = N - m;
+        int min = 0;
         
-        while (startIndexOfBox >= 0) {
-            result += score[startIndexOfBox] * m;
-            startIndexOfBox -= m;
+        for (int num : score) {
+            pq.offer(num);
+        }
+        
+        while (pq.size() >= m) {
+            for (int i = 0; i < m; i++) {
+                min = pq.poll();
+            }
+            result += min * m;
         }
         
         return result;
