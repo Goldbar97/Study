@@ -1,13 +1,12 @@
 // 4
-import java.time.*;
-
 class Solution {
     public String solution(int a, int b) {
+        // MON = 0, SUN = 6;
+        String[] days = {"MON","TUE","WED","THU","FRI","SAT", "SUN"};
+        int[] startDay = {0, 4, 0, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3};
         
-        String[] dayOfWeek = {"", "MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
-        LocalDate localDate = LocalDate.of(2016, a, b);
-        int dateValue = localDate.getDayOfWeek().getValue();
+        int day = (startDay[a] + b - 1) % 7;
         
-        return dayOfWeek[dateValue];
+        return days[day];
     }
 }
