@@ -1,8 +1,8 @@
+// 2
 import java.util.Arrays;
 
 class Solution {
     public int solution(int[] nums) {
-        Arrays.sort(nums);
         int count = 0;
         int N = nums.length;
         
