@@ -4,42 +4,34 @@ import java.util.stream.Collectors;
 class Solution {
     public String solution(String X, String Y) {
         
-        HashMap<Character, Integer> mapX = new HashMap<>();
-        HashMap<Character, Integer> mapY = new HashMap<>();
-        ArrayList<Character> list = new ArrayList<>();
+        int[] arrayX = new int[10];
+        int[] arrayY = new int[10];
         StringBuilder sb = new StringBuilder();
         
         for (char x : X.toCharArray()) {
-            mapX.put(x, mapX.getOrDefault(x, 0) + 1);
+            arrayX[x - '0']++;
         }
         
         for (char y : Y.toCharArray()) {
-            mapY.put(y, mapY.getOrDefault(y, 0) + 1);
+            arrayY[y - '0']++;
         }
         
-        for (Map.Entry<Character, Integer> item : mapX.entrySet()) {
-            Character key = item.getKey();
+        for (int i = 9; i >= 0; i--) {
+            int count = Math.min(arrayX[i], arrayY[i]);
             
-            if (mapY.containsKey(key)) {
-                int count = Math.min(mapX.get(key), mapY.get(key));
-                for (int i = 0; i < count; i++) {
-                    list.add(key);
-                }
+            if (i == 0 && count > 0 && sb.length() == 0) {
+                return "0";
+            }
+            
+            for (int j = 0; j < count; j++) {
+                sb.append(i);
             }
         }
         
-        list.sort(Collections.reverseOrder());
-        
-        if (list.isEmpty()) {
+        if (sb.length() == 0) {
             return "-1";
-        } else if (list.get(0).equals('0')) {
-            return "0";
+        } else {
+            return sb.toString();
         }
-        
-        for (int i = 0; i < list.size(); i++) {
-            sb.append(list.get(i));
-        }
-        
-        return sb.toString();
     }
 }
