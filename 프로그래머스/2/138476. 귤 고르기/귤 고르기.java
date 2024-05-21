@@ -2,8 +2,6 @@ import java.util.*;
 
 class Solution {
     public int solution(int k, int[] tangerine) {
-        PriorityQueue<Map.Entry<Integer, Integer>> pq = new PriorityQueue<>(
-                (x, y) -> y.getValue() - x.getValue());
         Map<Integer, Integer> map = new HashMap<>();
         int result = 0;
         
@@ -11,12 +9,12 @@ class Solution {
             map.put(num, map.getOrDefault(num, 0) + 1);
         }
         
-        for (Map.Entry<Integer, Integer> item : map.entrySet()) {
-            pq.offer(item);
-        }
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(map.entrySet());
+        
+        list.sort(Map.Entry.comparingByValue(Comparator.reverseOrder()));
         
         while (k > 0) {
-            Map.Entry<Integer, Integer> item = pq.poll();
+            Map.Entry<Integer, Integer> item = list.get(result);
             int num = item.getValue();
             result++;
             k -= num;
