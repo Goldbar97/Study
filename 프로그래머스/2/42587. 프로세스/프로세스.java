@@ -3,33 +3,28 @@ import java.util.*;
 class Solution {
     public int solution(int[] priorities, int location) {
         
-        
-        Queue<Map.Entry<Integer, Integer>> queue = new LinkedList<>();
-        SortedMap<Integer, Integer> map = new TreeMap<>();
+        Queue<Map.Entry<Character, Integer>> queue = new LinkedList<>();
+        SortedMap<Character, Integer> map = new TreeMap<>();
 
+        char target = (char) ('A' + location);
         int max = 0;
-        for (int i = 0; i < priorities.length; i++) {
-            map.put(i, priorities[i]);
-            max = Math.max(max, priorities[i]);
-        }
         
-        for (Map.Entry<Integer, Integer> item : map.entrySet()) {
-            queue.offer(item);
+        for (int i = 0; i < priorities.length; i++) {
+            map.put((char) ('A' + i), priorities[i]);
+            max = Math.max(max, priorities[i]);
         }
         
         int count = 1;
         while (!queue.isEmpty()) {
-            Map.Entry<Integer, Integer> item = queue.poll();
+            Map.Entry<Character, Integer> item = queue.poll();
             
             if (item.getValue() == max) {
-                if (item.getKey() == location) {
+                if (item.getKey() == target) {
                     break;
                 } else {
                     count++;
-                    max = 0;
                 }
-                
-                for (Map.Entry<Integer, Integer> i : queue) {
+                for (Map.Entry<Character, Integer> i : queue) {
                     max = Math.max(max, i.getValue());
                 }
             } else {
