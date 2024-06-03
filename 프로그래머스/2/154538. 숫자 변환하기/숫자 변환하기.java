@@ -17,12 +17,12 @@ class Solution {
                 return count;
             }
             
-            int[] next = {val + n, val * 2, val * 3};
+            int[] nextValue = {val + n, val * 2, val * 3};
             
-            for (int v : next) {
-                if (v <= y && !visited.getOrDefault(v, false)) {
-                    visited.put(v, true);
-                    queue.offer(new int[]{v, count + 1});
+            for (int next : nextValue) {
+                if (next <= y && !visited.getOrDefault(next, false)) {
+                    visited.put(next, true);
+                    queue.offer(new int[]{next, count + 1});
                 }
             }
         }
