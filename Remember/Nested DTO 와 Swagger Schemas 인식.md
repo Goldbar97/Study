@@ -79,7 +79,7 @@ springdoc:
 
 프로젝트 설정 파일인 application.yml 에 다음과 같이 추가했더니 드디어 Swagger-UI 의 Schemas 에 제대로 표시된다.
 
-Swagger 의 클래스 인식은 패키지 위치와는 상관없이 이름만으로 구분을 하며, 내 DTO 는 다른 DTO 와 이름은 다르지만 같은 클래스 이름인 Request 와 Response 를 사용하고 있다.
+Swagger 의 클래스 인식은 패키지 위치와는 상관없이 이름만으로 구분을 하며, 내 DTO 는 다른 DTO 와 이름은 다르지만 같은 내부 클래스 이름인 Request 와 Response 를 사용하고 있다.
 
 따라서 실제로 다른 클래스이지만 이름이 같기 때문에 충돌이 발생하게 되고 Swagger Schemas 가 정상적으로 인식을 하지 않던 것이었다.
 
